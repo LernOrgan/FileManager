@@ -36,6 +36,7 @@
             this.CopyButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.CompressButton = new System.Windows.Forms.Button();
+            this.SettingsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FileWay
@@ -49,7 +50,7 @@
             // 
             this.ListOfDirectories.FormattingEnabled = true;
             this.ListOfDirectories.ItemHeight = 20;
-            this.ListOfDirectories.Location = new System.Drawing.Point(12, 65);
+            this.ListOfDirectories.Location = new System.Drawing.Point(12, 64);
             this.ListOfDirectories.Name = "ListOfDirectories";
             this.ListOfDirectories.Size = new System.Drawing.Size(740, 384);
             this.ListOfDirectories.TabIndex = 1;
@@ -68,9 +69,9 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(758, 65);
+            this.DeleteButton.Location = new System.Drawing.Point(758, 64);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(220, 45);
+            this.DeleteButton.Size = new System.Drawing.Size(220, 44);
             this.DeleteButton.TabIndex = 3;
             this.DeleteButton.Text = "Удалить";
             this.DeleteButton.UseVisualStyleBackColor = true;
@@ -98,7 +99,7 @@
             // 
             // BackButton
             // 
-            this.BackButton.Location = new System.Drawing.Point(885, 10);
+            this.BackButton.Location = new System.Drawing.Point(874, 12);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(94, 29);
             this.BackButton.TabIndex = 6;
@@ -116,11 +117,22 @@
             this.CompressButton.UseVisualStyleBackColor = true;
             this.CompressButton.Click += new System.EventHandler(this.CompressButton_Click);
             // 
+            // SettingsButton
+            // 
+            this.SettingsButton.Location = new System.Drawing.Point(800, 421);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(178, 56);
+            this.SettingsButton.TabIndex = 8;
+            this.SettingsButton.Text = "Настройки";
+            this.SettingsButton.UseVisualStyleBackColor = true;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 500);
+            this.Controls.Add(this.SettingsButton);
             this.Controls.Add(this.CompressButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.CopyButton);
@@ -129,6 +141,7 @@
             this.Controls.Add(this.SerchButton);
             this.Controls.Add(this.ListOfDirectories);
             this.Controls.Add(this.FileWay);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "Form1";
             this.Text = "FFManager";
             this.ResumeLayout(false);
@@ -146,5 +159,6 @@
         private Button CopyButton;
         private Button BackButton;
         private Button CompressButton;
+        private Button SettingsButton;
     }
 }

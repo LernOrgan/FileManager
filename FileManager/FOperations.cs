@@ -18,8 +18,7 @@ namespace FileManager
         public static string[]? GoForward(string path)
         {
             if (path == "C:\\" || path == "D:\\")
-            {
-                NowDirectoryWay = path;
+            {  
                 return GoToFile(path);
             }
             else
@@ -30,6 +29,7 @@ namespace FileManager
         }
         public static string[]? GoToFile(string path) // Возвращает массив из полных имён файлов, содержащихся в данной папке
         {    
+
             if (File.Exists(path))
             {
                 StartFile(path);
@@ -51,7 +51,7 @@ namespace FileManager
                             from file in objects1
                             where !file.Attributes.HasFlag(FileAttributes.Hidden)
                             select file.Name).ToArray();
-
+            NowDirectoryWay = path;
             return Files;
         }
         private static void StartFile(string path)//Запускает файл по данному пути
@@ -68,7 +68,7 @@ namespace FileManager
             else
             {
                 DirectoryInfo NowDirect = new DirectoryInfo(NowDirectoryWay);
-                NowDirectoryWay = NowDirect.Parent.FullName;
+                //NowDirectoryWay = NowDirect.Parent.FullName;
                 return GoToFile(NowDirect.Parent.FullName);
             }
         }
@@ -125,7 +125,7 @@ namespace FileManager
             }
             else
             {
-                ZipFile.CreateFromDirectory(OldPath, OldPath + ".zip");
+                ZipFile.CreateFromDirectory(OldPath, NewPath);
             }
         }
     }
