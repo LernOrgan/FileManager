@@ -54,10 +54,12 @@ namespace FileManager
             NowDirectoryWay = path;
             return Files;
         }
+
         private static void StartFile(string path)//Запускает файл по данному пути
         {
             Process.Start(new ProcessStartInfo(path) { UseShellExecute = true });
         }
+
         public static string[] GoBack()
         {
             if (NowDirectoryWay == null || NowDirectoryWay == "C:\\" || NowDirectoryWay == "D:\\")
@@ -72,10 +74,12 @@ namespace FileManager
                 return GoToFile(NowDirect.Parent.FullName);
             }
         }
+
         public static string NameOfFile(string path)
         {
             return Path.GetFileName(path);
         }
+
         public static void DeletePath(string path)
         {
             if(File.Exists(path)) File.Delete(path);
@@ -84,11 +88,13 @@ namespace FileManager
                 Directory.Delete(path, true);
             }
         }
+
         public static void RenameFile(string path, string NewName)
         {
             DirectoryInfo di = new DirectoryInfo(path);
             di.MoveTo(di.Parent.FullName + "\\" + NewName);
         }
+
         public static void Copy(string OldPath, string NewPath)
         {
             if (File.Exists(OldPath)) File.Copy(OldPath, NewPath, false);
@@ -97,6 +103,7 @@ namespace FileManager
                 RecursiveCopy(OldPath, NewPath);
             }
         }
+
         private static void RecursiveCopy(string OldPath, string NewPath)
         {
             Directory.CreateDirectory(NewPath);
@@ -110,24 +117,8 @@ namespace FileManager
                 RecursiveCopy(s, NewPath + "\\" + Path.GetFileName(s));
             }
         }
-        public static void Compress(string OldPath)
-        {
-            
-            string NewPath = OldPath + ".zip";
 
-            if (File.Exists(OldPath))
-            {
-                var outputStream = new FileStream(NewPath, FileMode.Create, FileAccess.ReadWrite);
-                var archive = new ZipArchive(outputStream, ZipArchiveMode.Create, true, Encoding.UTF8);
-                var entryStream = archive.CreateEntry(Path.GetFileName(OldPath)).Open();
-                var inputStream = new FileStream(OldPath, FileMode.Open, FileAccess.Read);
-                inputStream.CopyTo(entryStream);
-            }
-            else
-            {
-                ZipFile.CreateFromDirectory(OldPath, NewPath);
-            }
-        }
+        
     }
 
 }
